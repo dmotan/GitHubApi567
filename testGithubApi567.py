@@ -8,17 +8,18 @@ for the getGithubData function.
 """
 
 import unittest
-
+from unittest import mock
+from unittest.mock import patch, Mock
 from githubApi567 import getGithubData
 
 class TestGetGithub(unittest.TestCase):
-    # define multiple sets of tests as functions with names that begin
 
-    def testGetGithubData(self):
-        # Github id does not exist
-        self.assertEqual(getGithubData('richkempinskiiiiiiiii'), 'richkempinskiiiiiiiii does not exists')
-        # Github id exists
-        self.assertNotEqual(getGithubData('dmotan'),'dmotan does not exists')
+    @mock.patch('requests.get')
+    def testGetGithubData(self, mockedRequest):
+        # Working part
+        mockedRequest.return_value.text = '{ "message": "Not Found", "documentation_url": "https://docs.github.com/rest/reference/users#get-a-user"}'
+        response = getGithubData('richkempinskiiiiiiiii')
+        self.assertEqual(response, 'richkempinskiiiiiiiii does not exists')
 
 if __name__ == '__main__':
     print('Running unit tests')
