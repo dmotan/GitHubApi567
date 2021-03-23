@@ -39,3 +39,4 @@ def getGithubData(githubUserId: str):
             # print the result
             for repo, commits in data.items():
                 print(f'Repo: {repo} Number of commits: {commits}')
+            return data

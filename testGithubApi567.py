@@ -20,6 +20,41 @@ class TestGetGithub(unittest.TestCase):
         # Github id exists
         self.assertNotEqual(getGithubData('dmotan'),'dmotan does not exists')
 
+        commits = {
+            'AMP-pets': 2,
+            'Basic-Portfolio': 3,
+            'Bootstrap-Portfolio': 3,
+            'burger': 6,
+            'deanEnergySolutions': 1,
+            'diya2motan.github.io': 2,
+            'Flashcard-Generator': 4,
+            'fresh-potatoes': 1,
+            'getallaround': 1,
+            'GifTastic': 4,
+            'github-slideshow': 7,
+            'GitHubApi567': 4,
+            'Hangman-Game': 5,
+            'helloWorld': 2,
+            'Here-We-Go': 30,
+            'HW-Wireframe': 3,
+            'hw1': 1,
+            'js-clock': 2,
+            'js-drumkit': 2,
+            'liri-node-app': 4,
+            'mongo-scrape-assignment': 2,
+            'myrepo': 1,
+            'NYTReact': 1,
+            'Portfolio': 1,
+            'react-passport': 2,
+            'Responsive-Portfolio': 2,
+            'sequelizedBurger': 2,
+            'Student-Repository': 2,
+            'swapi': 2,
+            'test': 2
+        }
+
+        self.assertEqual(getGithubData('dmotan'),commits)
+
 if __name__ == '__main__':
     print('Running unit tests')
     unittest.main()
